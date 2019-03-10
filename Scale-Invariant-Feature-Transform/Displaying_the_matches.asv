@@ -1,0 +1,35 @@
+A = rgb2gray(imread('images2/IMG0_001.jpg'));
+B = rgb2gray(imread('images2/IMG1_002.jpg'));
+%Keypoints found from the python code are added here for display purposes. 
+%The input set of Keypoints 
+%The values are given in the (x,y) form
+orig = [34 57;174 44;358 55;66 97;92 101;152 110;304 105;375 75;369 104;205 148;298 154;382 113;364 133;478 255;304 154;335 173;317 183;325 189]
+
+%The output data obtained from the Python function is written here. Please
+%look into the Python Code for the obtained output data. 
+obtained = [59 19;
+            135 56;
+            283 84;
+            27 109;
+            56 113;
+            110 123;
+            141 113;
+            343 95;
+            38 124;
+            179 131;
+            144 167;
+            322 130;
+            215 99;
+            251 334;
+            150 133;
+            188 181;
+            197 171;181 218]
+
+I1 = imresize(A,0.5);
+I2 = imresize(B,0.5);
+
+
+figure; ax = axes;
+showMatchedFeatures(I2,I1,obtained,orig,'montage','Parent',ax);
+title(ax, 'Feature Correspondences');
+legend(ax, 'Matched points:1','Matched points:2');
